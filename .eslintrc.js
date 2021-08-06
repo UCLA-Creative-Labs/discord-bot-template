@@ -26,6 +26,9 @@ module.exports = {
   rules: {
     'linebreak-style': [ 'error', 'unix' ],
 
+    // Always add a trailing new line to the end of a file (clean diffs)
+    'eol-last': [ 'error', 'unix' ],
+
     '@typescript-eslint/no-require-imports': [ 'error' ],
 
     // 2 space indentation
