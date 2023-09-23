@@ -1,4 +1,4 @@
-# Title
+# Discord Bot Template
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 [![Mergify Status][mergify-status]][mergify]
 
@@ -12,16 +12,64 @@ expected to uphold this code. Please report unacceptable behavior to uclacreativ
 
 We use [`yarn`](https://classic.yarnpkg.com/en/docs/install#mac-stable) as our package manager.
 
-The basic commands to get this repository and start are:
+### Creating a new Discord Bot
 
-```
-$ git clone https://github.com/UCLA-Creative-Labs/project.git
-$ cd project
-$ yarn install
-$ yarn start
-```
+1. Clone the repository template
 
-If you run into an issue, feel free to make an issue [here](https://github.com/UCLA-Creative-Labs/project/issues). If you have a fix, even better! Check out the follow section to learn how to contribute!
+    ```
+    $ git clone https://github.com/UCLA-Creative-Labs/discord-bot-template.git
+    $ cd discord-bot-template
+    $ yarn install
+    ```
+
+2. Register a new Discord Bot through [Discord's Developer Portal](https://discord.com/developers/):
+
+    [Discord.js Tutorial](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)
+
+3. Set your environmental variables:
+    - For development, create a file `.env` in the project's root directory and set the variables below
+        - `dotenv` is used to handle environmental variables
+    ```
+    DISCORD_CLIENT_ID=YOUR_BOT_APPLICATION_ID_HERE
+    DISCORD_TOKEN=YOUR_BOT_TOKEN_HERE
+    ```
+
+    *(Optional)*
+    - Set an environmental variable for our Creative Labs Discord to deploy new commands without re-inviting the bot
+    - Right click on our server name and click `Copy Server ID` to get the guild ID
+    ```
+    TEST_GUILD_ID=OUR_SERVER_ID
+    ```
+
+4. For development, you can watch files with:
+    ```
+    $ yarn dev
+    ```
+
+5. To deploy commands for the `TEST_GUILD_ID` server:
+    ```
+    $ yarn deploy
+    ```
+
+6. To build the TypeScript app into a JS distribution:
+    ```
+    $ yarn build
+    ```
+
+7. Finally, to run the production app:
+    ```
+    $ yarn start
+    ```
+
+## Creating new Slash commands
+
+We recommend checking out [this tutorial](https://discordjs.guide/slash-commands/response-methods.html).
+
+Some sample commands are set up in `./src/commands/`, including a simple reply and a modal popup.
+
+New command `.ts` files should be imported in `./src/commands/index.ts`.
+
+Feel free to contribute more samples of different types of commands and UI.
 
 ## Contributing
 
